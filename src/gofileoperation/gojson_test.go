@@ -14,6 +14,21 @@ type ColorGroup struct {
 	Colors []string
 }
 
+func TestJsonGroup(t *testing.T) {
+	group := ColorGroup{
+		ID:     1,
+		Name:   "Reds",
+		Colors: []string{"Crimson", "Red", "Ruby", "Maroon"},
+	}
+	var groups []ColorGroup
+	groups = append(groups,group)
+	groups = append(groups,group)
+	b, err := json.Marshal(groups)
+	if err != nil {
+		t.Log("error", err)
+	}
+	t.Log(string(b))
+}
 func TestJsonRead(t *testing.T) {
 	group := ColorGroup{
 		ID:     1,
@@ -55,8 +70,8 @@ func TestJsonWrite(t *testing.T) {
 	}
 	t.Log(string(jb))
 	var obj ColorGroup
-	e := json.Unmarshal(jb,&obj)
-	if e!=nil{
+	e := json.Unmarshal(jb, &obj)
+	if e != nil {
 		t.Log("Unmarshal failed")
 	}
 	t.Log(obj)
