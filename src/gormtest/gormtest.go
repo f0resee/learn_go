@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/gin-gonic/gin"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
@@ -13,6 +14,13 @@ type Product struct {
 }
 
 func main() {
+	r:=gin.Default()
+	r.GET("/hello", func(c *gin.Context) {
+		c.JSON(200,gin.H{
+			"message":"Hello newball",
+		})
+	})
+	r.Run()
 	db, err := gorm.Open(sqlite.Open("test.db"), &gorm.Config{})
 	if err != nil {
 		panic("failed to connect database")
