@@ -9,3 +9,10 @@ struct 成员小写导致rpc的结果全为默认值
 二维切片中反复添加同一个切片，修改一个切片的值会影响二维切片中的所有值
 
 安装go包：可以直接在程序中引用，然后运行使用go mod（GO111MODULE=on）
+
+# mysql
+1. mysql 只能root登录
+   alter user 'root'@'localhost' identified with mysql_native_password by '123456';
+2. mysql 修改密码 
+3. mysql 创建用户
+4. 
