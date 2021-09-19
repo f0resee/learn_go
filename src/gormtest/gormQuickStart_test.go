@@ -1,10 +1,10 @@
-package main
+package gormtest
 
 import (
 	"fmt"
-	"github.com/gin-gonic/gin"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
+	"testing"
 )
 
 type Product struct {
@@ -13,15 +13,8 @@ type Product struct {
 	Price uint
 }
 
-func main() {
-	r:=gin.Default()
-	r.GET("/hello", func(c *gin.Context) {
-		c.JSON(200,gin.H{
-			"message":"Hello newball",
-		})
-	})
-	r.Run()
-	db, err := gorm.Open(sqlite.Open("test.db"), &gorm.Config{})
+func TestQuickStart(t *testing.T) {
+	db, err := gorm.Open(sqlite.Open("./test.db"), &gorm.Config{})
 	if err != nil {
 		panic("failed to connect database")
 	}
@@ -30,8 +23,8 @@ func main() {
 	db.AutoMigrate(&Product{})
 
 	// Create
-	db.Create(&Product{Code: "D42", Price: 100})
-	db.Create(&Product{Code: "D43", Price: 101})
+	db.Create(&Product{Code: "D44", Price: 106})
+	db.Create(&Product{Code: "D45", Price: 107})
 	//
 	var res []Product
 	db.First(&res)
