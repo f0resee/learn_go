@@ -18,7 +18,7 @@ func someHandler() {
 	//10秒后取消doStuff
 	time.Sleep(10 * time.Second)
 	cancel()
-
+	time.Sleep(1*time.Second) //等待协程退出，不等待看不到后续输出
 }
 
 //每1秒work一下，同时会判断ctx是否被取消了，如果是就退出
@@ -76,4 +76,30 @@ func TestCotextWithCancel(t *testing.T) {
 			break
 		}
 	}
+}
+
+func TestContextDone(t *testing.T)  {
+	ctx, cancel := context.WithCancel(context.Background())
+	i := 0
+
+	// monitor
+
+	go func() {
+		for range time.Tick(time.Second) {
+			select {
+			case <-ctx.Done():
+				//fmt.Println("exiting")
+				i = i + 1
+				fmt.Println(i)
+				return
+			default:
+				fmt.Println("monitor working")
+			}
+		}
+	}()
+
+	time.Sleep(3 * time.Second)
+	cancel()
+	time.Sleep(time.Second)
+	//fmt.Println("i=",i)
 }

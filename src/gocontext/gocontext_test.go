@@ -11,7 +11,7 @@ import (
 
 func isCancelled(ctx context.Context) bool {
 	select {
-	case <-ctx.Done():  //同样的问题
+	case <-ctx.Done():
 		fmt.Println("dong. true")
 		return true
 	default:
