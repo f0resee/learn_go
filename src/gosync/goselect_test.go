@@ -7,12 +7,12 @@ import (
 )
 
 func service() string {
-	time.Sleep(time.Millisecond*50)
+	time.Sleep(time.Millisecond * 50)
 	return "Done"
 }
 
-func AsyncService()chan string {
-	retCh := make(chan string,1)
+func AsyncService() chan string {
+	retCh := make(chan string, 1)
 	go func() {
 		ret := service()
 		fmt.Println("returned result.")
@@ -23,11 +23,20 @@ func AsyncService()chan string {
 
 }
 
-func TestGoSelect(t *testing.T)  {
+func TestGoSelect(t *testing.T) {
 	select {
-	case ret := <- AsyncService():
+	case ret := <-AsyncService():
 		t.Log(ret)
-	case <-time.After(time.Millisecond*100):
+	case <-time.After(time.Millisecond * 100):
 		t.Log("time out")
+	}
+}
+
+func TestSelectDefault(t *testing.T) {
+	select {
+	case <-time.After(time.Millisecond * 100):
+		t.Log("time out")
+	default:
+		t.Log("default")
 	}
 }
