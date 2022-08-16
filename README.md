@@ -15,4 +15,13 @@ struct 成员小写导致rpc的结果全为默认值
    alter user 'root'@'localhost' identified with mysql_native_password by '123456';
 2. mysql 修改密码 
 3. mysql 创建用户
-4. 
+
+# Golang
+## 常用命令
+1. go test 
+   ```shell
+   go test xxx_test.go
+   go test -v xxx_test.go # -v显示详细信息
+   go test -run Testxxx xxx_test.go # -run运行某一个测试
+   go test -bench=. -v xxx_test.go # -bench运行某一个benchmark
+   ```
