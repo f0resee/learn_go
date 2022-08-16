@@ -18,7 +18,8 @@ struct 成员小写导致rpc的结果全为默认值
 
 # Golang
 ## 常用命令
-1. go test 
+1. go help
+2. go test 
    ```shell
    go test xxx_test.go
    go test -v xxx_test.go # -v显示详细信息
