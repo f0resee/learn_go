@@ -32,3 +32,6 @@ struct 成员小写导致rpc的结果全为默认值
 3. ORM框架 [gorm](https://gorm.io/)
 4. Mock框架 [gomock](https://github.com/golang/mock) / [goconvey](https://github.com/smartystreets/goconvey)
 5. 断言库 [assert](https://github.com/stretchr/testify)
+
+## 中间件执行顺序
+![输入图片说明](image.png)
