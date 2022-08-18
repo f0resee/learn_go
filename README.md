@@ -34,5 +34,6 @@ struct 成员小写导致rpc的结果全为默认值
 5. 断言库 [assert](https://github.com/stretchr/testify)
 
 ## 中间件执行顺序
+同一个中间件，他的前置逻辑越早执行，他的后置逻辑执行的越晚。
 ![输入图片说明](image1.png)
 ![输入图片说明](image.png)
