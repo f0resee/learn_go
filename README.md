@@ -10,12 +10,6 @@ struct 成员小写导致rpc的结果全为默认值
 
 安装go包：可以直接在程序中引用，然后运行使用go mod（GO111MODULE=on）
 
-# mysql
-1. mysql 只能root登录
-   alter user 'root'@'localhost' identified with mysql_native_password by '123456';
-2. mysql 修改密码 
-3. mysql 创建用户
-
 # Golang
 ## 常用命令
 1. go help
@@ -32,8 +26,19 @@ struct 成员小写导致rpc的结果全为默认值
 3. ORM框架 [gorm](https://gorm.io/)
 4. Mock框架 [gomock](https://github.com/golang/mock) / [goconvey](https://github.com/smartystreets/goconvey)
 5. 断言库 [assert](https://github.com/stretchr/testify)
+6. flag包 [pflag](https://github.com/spf13/pflag)
+7. validate [govalidator](http://github.com/asaskevich/govalidator)
+8. websocket [websocket](https://github.com/gorilla/websocket)
 
 ## 中间件执行顺序
 同一个中间件，他的前置逻辑越早执行，他的后置逻辑执行的越晚。
 ![输入图片说明](image1.png)
 ![输入图片说明](image.png)
+
+# MySql
+1. mysql 只能root登录
+   alter user 'root'@'localhost' identified with mysql_native_password by '123456';
+2. mysql 修改密码
+3. mysql 创建用户
+4. MySql执行sql文件，a. source xxx.sql  b. mysql -u用户名 -p用户密码 < xxx.sql 
+   

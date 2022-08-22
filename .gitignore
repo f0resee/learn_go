@@ -13,3 +13,4 @@
 .idea
 src/pkg
 ./test.db
+config_process.sql
