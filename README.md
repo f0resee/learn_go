@@ -29,6 +29,10 @@ struct 成员小写导致rpc的结果全为默认值
 6. flag包 [pflag](https://github.com/spf13/pflag)
 7. validate [govalidator](http://github.com/asaskevich/govalidator)
 8. websocket [websocket](https://github.com/gorilla/websocket)
+9. redis
+
+## 常用技术
+1. 稳定性：缓存、降级、限流（熔断）
 
 ## 中间件执行顺序
 同一个中间件，他的前置逻辑越早执行，他的后置逻辑执行的越晚。
@@ -42,3 +46,6 @@ struct 成员小写导致rpc的结果全为默认值
 3. mysql 创建用户
 4. MySql执行sql文件，a. source xxx.sql  b. mysql -u用户名 -p用户密码 < xxx.sql 
    
+# 项目
+1. [6.824](http://nil.csail.mit.edu/6.824/2020/schedule.html)
+2. 数据库项目
