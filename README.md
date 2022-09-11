@@ -34,7 +34,7 @@ struct 成员小写导致rpc的结果全为默认值
 6. flag包 [pflag](https://github.com/spf13/pflag)
 7. validate [govalidator](http://github.com/asaskevich/govalidator)
 8. websocket [websocket](https://github.com/gorilla/websocket)
-9. redis
+9. redis key-value存储 [redis](https://redis.io/)
 
 ## 常用技术
 1. 稳定性：缓存、降级、限流（熔断，[hystrix-go](https://gitee.com/mirrors/hystrix-go)，[uber rate limit](https://pkg.go.dev/go.uber.org/ratelimit)，[go x rate](https://pkg.go.dev/golang.org/x/time/rate)）
@@ -42,8 +42,8 @@ struct 成员小写导致rpc的结果全为默认值
 
 ## 中间件执行顺序
 同一个中间件，他的前置逻辑越早执行，他的后置逻辑执行的越晚。
-![输入图片说明](image1.png)
-![输入图片说明](image.png)
+![输入图片说明](img/image1.png)
+![输入图片说明](img/image.png)
 
 # MySql
 1. mysql 只能root登录
@@ -55,3 +55,8 @@ struct 成员小写导致rpc的结果全为默认值
 # 项目
 1. [6.824](http://nil.csail.mit.edu/6.824/2020/schedule.html)
 2. 数据库项目
+
+### 1. 缓存穿透、击穿、雪崩
++ 穿透：指查询一个缓存和数据库都不存在的数据，导致尽管数据不存在但是每次都会到数据库查询，在访问量大的时候数据库可能挂掉。
++ 击穿：单个key值的缓存失效过期
++ 雪崩：redis缓存中大量的key同时失效，同时刚好有大量的请求，会直接访问数据库，造成数据库阻塞甚至宕机

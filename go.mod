@@ -4,6 +4,8 @@ go 1.18
 
 require (
 	github.com/gin-gonic/gin v1.7.4
+	github.com/go-playground/assert/v2 v2.0.1
+	github.com/gomodule/redigo v1.8.9
 	github.com/pkg/errors v0.9.1
 	gorm.io/driver/mysql v1.1.2
 	gorm.io/driver/sqlite v1.1.4
