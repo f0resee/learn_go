@@ -38,7 +38,7 @@ struct 成员小写导致rpc的结果全为默认值
 
 ## 常用技术
 1. 稳定性：缓存、降级、限流（熔断，[hystrix-go](https://gitee.com/mirrors/hystrix-go)，[uber rate limit](https://pkg.go.dev/go.uber.org/ratelimit)，[go x rate](https://pkg.go.dev/golang.org/x/time/rate)）
-2. 
+2. doker
 
 ## 中间件执行顺序
 同一个中间件，他的前置逻辑越早执行，他的后置逻辑执行的越晚。
