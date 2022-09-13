@@ -10,6 +10,16 @@ struct 成员小写导致rpc的结果全为默认值
 
 安装go包：可以直接在程序中引用，然后运行使用go mod（GO111MODULE=on）
 
+# linux
+
+### 常用命令
+1. ps
+2. kill
+3. ip
+4. netstat
+5. scp
+6. 
+
 # Golang
 ## 常用命令
 1. go help
@@ -38,8 +48,9 @@ struct 成员小写导致rpc的结果全为默认值
 
 ## 常用技术
 1. 稳定性：缓存、降级、限流（熔断，[hystrix-go](https://gitee.com/mirrors/hystrix-go)，[uber rate limit](https://pkg.go.dev/go.uber.org/ratelimit)，[go x rate](https://pkg.go.dev/golang.org/x/time/rate)）
-2. docker
+2. docker（[Docker镜像仓库](https://hub.docker.com/search?image_filter=official&q=)）
 3. kafka/rocketmq([官网](https://rocketmq.apache.org/)，[控制面板](https://github.com/apache/rocketmq-dashboard)，使用参考go rocketmq examples)
+4. k8s（全称Kubernetes，[Kubernetes](https://kubernetes.io/)）
 
 ## 中间件执行顺序
 同一个中间件，他的前置逻辑越早执行，他的后置逻辑执行的越晚。
