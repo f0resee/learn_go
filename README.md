@@ -68,6 +68,17 @@ struct 成员小写导致rpc的结果全为默认值
 1. [6.824](http://nil.csail.mit.edu/6.824/2020/schedule.html)
 2. 数据库项目
 
+## Docker
+### 1. 常用命令
+```bash
+docker images
+docker ps -a
+docker build -t getting-started . 
+docker exec -it 0ec47bf44530 sh 
+docker run -dp 3000:3000 getting-started  
+```
+
+## Redis
 ### 1. 缓存穿透、击穿、雪崩
 + 穿透：指查询一个缓存和数据库都不存在的数据，导致尽管数据不存在但是每次都会到数据库查询，在访问量大的时候数据库可能挂掉。
 + 击穿：单个key值的缓存失效过期
