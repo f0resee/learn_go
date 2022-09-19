@@ -3,6 +3,7 @@ module awesomeProject
 go 1.18
 
 require (
+	github.com/apache/rocketmq-client-go/v2 v2.1.1
 	github.com/gin-gonic/gin v1.7.4
 	github.com/go-playground/assert/v2 v2.0.1
 	github.com/gomodule/redigo v1.8.9
@@ -13,7 +14,6 @@ require (
 )
 
 require (
-	github.com/apache/rocketmq-client-go/v2 v2.1.1 // indirect
 	github.com/emirpasic/gods v1.12.0 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-playground/locales v0.13.0 // indirect

@@ -52,6 +52,7 @@ struct 成员小写导致rpc的结果全为默认值
 3. kafka/rocketmq([官网](https://rocketmq.apache.org/ )，[控制面板](https://github.com/apache/rocketmq-dashboard )，使用参考go rocketmq examples)
 4. k8s（全称Kubernetes，[Kubernetes](https://kubernetes.io/) ）
 5. Elasticsearch
+6. nginx
 
 ## 中间件执行顺序
 同一个中间件，他的前置逻辑越早执行，他的后置逻辑执行的越晚。
@@ -72,7 +73,7 @@ struct 成员小写导致rpc的结果全为默认值
 2. 数据库项目
 
 ## Docker
-### 1. 常用命令
+#### 1. 常用命令
 ```bash
 docker images
 docker ps -a
@@ -82,20 +83,24 @@ docker run -dp 3000:3000 getting-started
 ```
 
 ## Redis
-### 1. 缓存穿透、击穿、雪崩
+#### 1. 缓存穿透、击穿、雪崩
 + 穿透：指查询一个缓存和数据库都不存在的数据，导致尽管数据不存在但是每次都会到数据库查询，在访问量大的时候数据库可能挂掉。
 + 击穿：单个key值的缓存失效过期
 + 雪崩：redis缓存中大量的key同时失效，同时刚好有大量的请求，会直接访问数据库，造成数据库阻塞甚至宕机
 
 ## Golang
-### 1.golang GC 回收介绍 (标记清除, 三色标记法, 混合写屏障)
+#### 1.golang GC 回收介绍 (标记清除, 三色标记法, 混合写屏障)
 
-### 2. 什么时候会触发 golang GC 呢
-### 3. golang channel 你会用在什么地方 (一个是控制 goroutine数量 一个是主main 控制关闭 子 goroutine)
-### 4. golang 如何做超时控制 ? (time.After 和 context.WithTimeOut)
-### 5. golang select 一般使用在什么场景
-### 6. golang 如何 比较两个 map 使用相等
+#### 2. 什么时候会触发 golang GC 呢
+#### 3. golang channel 你会用在什么地方 (一个是控制 goroutine数量 一个是主main 控制关闭 子 goroutine)
+#### 4. golang 如何做超时控制 ? (time.After 和 context.WithTimeOut)
+#### 5. golang select 一般使用在什么场景
+#### 6. golang 如何 比较两个 map 使用相等
++ 不能使用```==```直接比较，但可以用来判断map是否为```nil```
++ 方式1：可以通过分别枚举map1和map2中的key-value来比较两个map是否相等
++ 方式2：使用```reflect.DeepEqual```进行比较
 
+#### 7. golang sync.Cond
 
     熟悉 golang；
     熟悉 Shell编程，TCP, HTTP 协议；
