@@ -26,7 +26,7 @@ struct 成员小写导致rpc的结果全为默认值
    ```
 4 
 ## 开发所用库
-1. RPC框架 [kite](https://github.com/koding/kite)/[kitex](https://github.com/cloudwego/kitex)
+1. RPC框架 [kite](https://github.com/koding/kite )/[kitex](https://github.com/cloudwego/kitex )
 2. Web框架 [gin](https://gin-gonic.com/)
 3. ORM框架 [gorm](https://gorm.io/)
 4. Mock框架 [gomock](https://github.com/golang/mock) / [goconvey](https://github.com/smartystreets/goconvey)
@@ -37,10 +37,10 @@ struct 成员小写导致rpc的结果全为默认值
 9. redis key-value存储 [redis](https://redis.io/)
 
 ## 常用技术
-1. 稳定性：缓存、降级、限流（熔断，[hystrix-go](https://gitee.com/mirrors/hystrix-go)，[uber rate limit](https://pkg.go.dev/go.uber.org/ratelimit)，[go x rate](https://pkg.go.dev/golang.org/x/time/rate)）
+1. 稳定性：缓存、降级、限流（熔断，[hystrix-go](https://gitee.com/mirrors/hystrix-go )，[uber rate limit](https://pkg.go.dev/go.uber.org/ratelimit )，[go x rate](https://pkg.go.dev/golang.org/x/time/rate )）
 2. doker
 3. 池化（线程、协程、连接池）
-4. 缓存cache（[freecache](https://github.com/coocood/freecache)、[groupcache](https://github.com/golang/groupcache)、[bigcache](https://github.com/allegro/bigcache)，此外还有fastcache、offheap、ristretto等）
+4. 缓存cache（ [freecache](https://github.com/coocood/freecache )、 [groupcache](https://github.com/golang/groupcache )、[bigcache](https://github.com/allegro/bigcache) ，此外还有fastcache、offheap、ristretto等）
 
 ## 中间件执行顺序
 同一个中间件，他的前置逻辑越早执行，他的后置逻辑执行的越晚。
