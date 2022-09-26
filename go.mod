@@ -13,4 +13,7 @@ require (
 	gorm.io/gorm v1.21.14
 )
 
-require github.com/gorilla/websocket v1.5.0
+require (
+	github.com/afex/hystrix-go v0.0.0-20180502004556-fa1af6a1f4f5
+	github.com/gorilla/websocket v1.5.0
+)
