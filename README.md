@@ -35,10 +35,12 @@ struct 成员小写导致rpc的结果全为默认值
 7. validate [govalidator](http://github.com/asaskevich/govalidator)
 8. websocket [websocket](https://github.com/gorilla/websocket)
 9. redis key-value存储 [redis](https://redis.io/)
+10. yaml [yaml.v3](https://gopkg.in/yaml.v3)
+11. pretty [pretty](https://github.com/kr/pretty)
 
 ## 常用技术
 1. 稳定性：缓存、降级、限流（熔断，[hystrix-go](https://gitee.com/mirrors/hystrix-go )，[uber rate limit](https://pkg.go.dev/go.uber.org/ratelimit )，[go x rate](https://pkg.go.dev/golang.org/x/time/rate )）
-2. doker
+2. docker
 3. 池化（线程、协程、连接池）
 4. 缓存cache（ [freecache](https://github.com/coocood/freecache )、 [groupcache](https://github.com/golang/groupcache )、[bigcache](https://github.com/allegro/bigcache) ，此外还有fastcache、offheap、ristretto等）
 
