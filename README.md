@@ -36,7 +36,7 @@ struct 成员小写导致rpc的结果全为默认值
    ```
 4 
 ## 开发所用库
-1. RPC框架 [kite](https://github.com/koding/kite )/[kitex](https://github.com/cloudwego/kitex )
+1. RPC框架 [kite](https://github.com/koding/kite )/[kitex](https://github.com/cloudwego/kitex ), gRPC
 2. Web框架 [gin](https://gin-gonic.com/)
 3. ORM框架 [gorm](https://gorm.io/)
 4. Mock框架 [gomock](https://github.com/golang/mock) / [goconvey](https://github.com/smartystreets/goconvey)
