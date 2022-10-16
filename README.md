@@ -72,7 +72,14 @@ struct 成员小写导致rpc的结果全为默认值
 1. mysql 只能root登录
    alter user 'root'@'localhost' identified with mysql_native_password by '123456';
 2. mysql 修改密码
-3. mysql 创建用户
+3. mysql 创建用户并授权某个数据库:
+```sql
+CREATE USER 'test'@'localhost' IDENTIFIED BY '123456';
+update user set host='%' where user='test';
+grant all privileges on test.* to 'test'@'%'; --（两次）
+
+```
+
 4. MySql执行sql文件，a. source xxx.sql  b. mysql -u用户名 -p用户密码 < xxx.sql 
    
 # 项目
