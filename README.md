@@ -180,6 +180,9 @@ docker run -dp 3000:3000 getting-started
     有低延迟、Docker、Kubernetes，数据可视化等经验加分；
     对技术有追求，对量化行业有兴趣。
 
+//  mockgen -source=foo.go -package=mock -destination mock_foo.go
+
+
 goland无限试用，ide-eval-reset，2021.2.2及之前版本。
 
 # 计划
