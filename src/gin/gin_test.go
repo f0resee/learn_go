@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-contrib/sessions/cookie"
+	"github.com/gin-contrib/sessions/redis"
 	"github.com/gin-gonic/gin"
 	"log"
 	"testing"
@@ -11,7 +12,7 @@ import (
 
 func TestGinSession(t *testing.T) {
 	r := gin.Default()
-	store := cookie.NewStore([]byte("secret"))
+	store, _ := redis.NewStore(10, "tcp", "localhost:6379", "", []byte("secret"))
 	r.Use(sessions.Sessions("mysession", store))
 
 	// 理解：一个请求到达gin之后，会经过sessions.Sessions创建一个session，并保存在gin.Context中，因此
