@@ -18,4 +18,7 @@ require (
 	github.com/gin-contrib/sessions v0.0.5
 	github.com/golang/mock v1.6.0
 	github.com/gorilla/websocket v1.5.0
+	k8s.io/api v0.25.3
+	k8s.io/apimachinery v0.25.3
+	k8s.io/client-go v0.25.3
 )
