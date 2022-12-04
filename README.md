@@ -108,3 +108,5 @@ goland无限试用，ide-eval-reset，2021.2.2及之前版本。
 #### [Golang](./docs/golang.md)
 
 #### 基础服务
+
+containerd/lazy load/sidecar/daemonset
