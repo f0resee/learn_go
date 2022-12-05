@@ -110,3 +110,10 @@ goland无限试用，ide-eval-reset，2021.2.2及之前版本。
 #### 基础服务
 
 containerd/lazy load/sidecar/daemonset
+
+linux settings 
+```bash
+sudo apt-get install ntpdate					//在Ubuntu下更新本地时间
+sudo ntpdate time.windows.com
+sudo hwclock --localtime --systohc			//将本地时间更新到硬件上
+```
