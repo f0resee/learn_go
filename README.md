@@ -84,6 +84,17 @@ docker exec -it 0ec47bf44530 sh
 docker run -dp 3000:3000 getting-started  
 ```
 
+#### 2. minikube
+https://minikube.sigs.k8s.io/docs/start/
+
+https://www.jeeinn.com/2022/07/1715/
+
+minikube stop
+
+minikube delete
+
+minikube start --kubernetes-version=v1.23.8
+
 
 ### 1. 缓存穿透、击穿、雪崩
 + 穿透：指查询一个缓存和数据库都不存在的数据，导致尽管数据不存在但是每次都会到数据库查询，在访问量大的时候数据库可能挂掉。
