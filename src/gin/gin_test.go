@@ -26,7 +26,7 @@ func TestGinSession(t *testing.T) {
 		log.Println("session id:", session.ID(), len(session.ID()))
 
 		val := session.Get("hello")
-
+		log.Println("i = ", i)
 		log.Println(val)
 		if val == nil {
 			log.Println("try to set")
