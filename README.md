@@ -1,4 +1,4 @@
-# linux
+## linux
 
 ### 常用命令
 1. ps
@@ -45,7 +45,7 @@
 
 ![输入图片说明](img/image.png)
 
-# 项目
+## 项目
 1. [6.824](http://nil.csail.mit.edu/6.824/2020/schedule.html)
 2. 数据库项目
 
