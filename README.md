@@ -330,3 +330,21 @@ SSCAN key cursor [MATCH pattern] [COUNT count]
 ```
 
 #### 8. Redis有序集合（sorted set）
+有序集合和集合一样也是string类型元素的集合，且不允许重复的成员。不同的是每个元素都会关联一个double类型的分数，redis这是通过分数来为集合中的成员进行从小到大的排序。
+```bash
+ZADD runoobkey 1 redis
+ZRANGE runoobkey 0 10 WITHSCORES
+
+ZCARD key              # 获取成员数
+ZCOUNT key min max     # 分数在min、max之间的成员数
+ZINCRBY key increment member
+ZINTERSTORE destination numkeys key [key ...]
+ZLECOUNT key min max
+ZRANGE key start stop [WITHSCORES]
+ZRANGEBYLEX key min max [LIMIT offset count]
+ZRANGESCORE key min max [WITHSCORES] [LIMIT]
+ZRANK key member
+ZREM key member[member...]
+....
+
+```
