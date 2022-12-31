@@ -35,7 +35,7 @@
 8. nginx
 9. 监控[prometheus](https://prometheus.io/ )以及[grafana](https://grafana.com/ )
 
-## 工程设计
+## 设计
 1. [设计模式](./docs/design_pattern.md )
 
 ## 中间件执行顺序
@@ -217,3 +217,11 @@ sudo apt-get install ntpdate					//在Ubuntu下更新本地时间
 sudo ntpdate time.windows.com
 sudo hwclock --localtime --systohc			//将本地时间更新到硬件上
 ```
+
+## redis
+## 1. 常用操作
++ SPop
++ HSet
++ HDel
++ SAdd
++ HGetAll
