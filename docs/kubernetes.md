@@ -31,7 +31,7 @@ apt-get update
 apt-get install -y kubelet kubeadm kubectl
 ```
 
-#### 4. 
+### 4. 
 ```
 hostnamectl set-hostname master01  
 cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
@@ -58,7 +58,7 @@ kubeadm init --pod-network-cidr=10.244.0.0/16 --image-repository registry.aliyun
 
 ```
 
-#### 5. 安装dashboard
+### 5. 安装dashboard
 ```shell
 // https://github.com/kubernetes/dashboard
 kubectl apply -f recommended.yaml  
