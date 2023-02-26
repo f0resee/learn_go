@@ -1,4 +1,4 @@
-## 安装
+## 一、安装
 [kubernetes](https://kubernetes.io/)
 ### 1. 准备
 ```shell
@@ -66,3 +66,17 @@ kubectl edit svc kubernetes-dashboard -n kubernetes-dashboard  //type：ClusterI
 kubectl get svc -A |grep kubernetes-dashboard 
 kubectl -n kubernetes-dashboard create token admin-user
 ```
+
+
+### 6. minikube
+https://minikube.sigs.k8s.io/docs/start/
+
+https://www.jeeinn.com/2022/07/1715/
+
+minikube stop
+
+minikube delete
+
+minikube start --kubernetes-version=v1.23.8
+
+## 二、 源码
