@@ -7,6 +7,7 @@ require (
 	github.com/apache/rocketmq-client-go/v2 v2.1.1
 	github.com/gin-gonic/gin v1.7.4
 	github.com/go-playground/assert/v2 v2.0.1
+	github.com/go-zookeeper/zk v1.0.3
 	github.com/gomodule/redigo v2.0.0+incompatible
 	github.com/pkg/errors v0.9.1
 	gorm.io/driver/mysql v1.1.2
