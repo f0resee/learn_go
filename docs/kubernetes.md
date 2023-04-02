@@ -79,4 +79,26 @@ minikube delete
 
 minikube start --kubernetes-version=v1.23.8
 
-## 二、 源码
+## 二、主要组件
+ ![输入图片说明](../img/kubernetes.png)
+
+### 控制面组件
+### 1. API server(kube-apiserver)
+API server是k8s控制面中的一个组件，暴露k8s API，是k8s控制面的前端。其主要实现是kube-apiserver，可以水平
+缩放，通过部署更多的实例来进行缩放。可以运行多个kube-apiserver，并在实例间进行负载均衡。
+
+### 2. etcd
+完备、高可用key-value存储，用于k8s后端存储所有的集群数据。
+
+### 3. kube-scheduler
+用于监听新创建的Pods和未分配的node，并选择node来运行这些Pod。调度时考虑的因素：资源需求、硬件/软件/策略约束、亲和/反亲和要求、数据局部性、工作负载间的影响及生命周期。
+
+### 4. kube-controller-manager
+是运行controller进程的控制面组件。每个controller是一个单独的过程，但是都被编译成一个二进制文件，在一个进程中运行。
+
+### 节点组件
+### 5. kubelet
+
+### 6. kube-proxy
+维护节点网络规则，网络规则允许从集群内或者从集群外通过网络连接访问Pod。
+## 三、源码
