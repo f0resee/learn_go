@@ -6,12 +6,13 @@ swapoff -a      //关闭swap，立即生效
 vim /etc/fstabs //关闭swap
 ```
 
-### 2.下载安装containerd
+### 2.下载安装containerd和runc
 [containerd](https://github.com/containerd/containerd)
 ```shell
 tar Cxzvf /usr/local containerd-1.6.2-linux-amd64.tar.gz //解压
 mkdir -p /usr/local/lib/systemd/system
-//创建 containerd.service并启动
+//创建 containerd.service并启动，https://raw.githubusercontent.com/containerd/containerd/main/containerd.service
+vim /usr/local/lib/systemd/system/containerd.service
 systemctl daemon-reload
 systemctl enable --now containerd
 install -m 755 runc.amd64 /usr/local/sbin/runc
@@ -20,7 +21,7 @@ vim /etc/containerd/config.toml // 修改SystemdGroup为true
 sudo systemctl restart containerd
 ```
 
-### 3. kuberadm
+### 3. 安装kubelet、kubeadm、kubectl
 ```shell
 apt-get update && apt-get install -y apt-transport-https
 curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add - 
@@ -31,8 +32,8 @@ apt-get update
 apt-get install -y kubelet kubeadm kubectl
 ```
 
-### 4. 
-```
+### 4. 初始化集群，安装网络组件
+```shell
 hostnamectl set-hostname master01  
 cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
 overlay
@@ -56,15 +57,45 @@ kubeadm config images pull --image-repository registry.aliyuncs.com/google_conta
 vim /etc/containerd/config.toml // sandbox : registry.aliyuncs.com/google_containers/pause:3.9
 kubeadm init --pod-network-cidr=10.244.0.0/16 --image-repository registry.aliyuncs.com/google_containers
 
+# 安装flannel，https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
+kubectl apply -f kube-flannel.yml
+
 ```
 
 ### 5. 安装dashboard
 ```shell
-// https://github.com/kubernetes/dashboard
-kubectl apply -f recommended.yaml  
-kubectl edit svc kubernetes-dashboard -n kubernetes-dashboard  //type：ClusterIP修改为NodePort
+# 下载release， https://github.com/kubernetes/dashboard
+kubectl apply -f aio/deploy/recommended.yaml  
+
+#type：ClusterIP修改为NodePort
+kubectl edit svc kubernetes-dashboard -n kubernetes-dashboard  
 kubectl get svc -A |grep kubernetes-dashboard 
+
+# 创建admin-user用户，https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md
+kubectl apply -f create-admin-user.yaml
 kubectl -n kubernetes-dashboard create token admin-user
+```
+
+create-admin-user.yaml
+```yml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: admin-user
+  namespace: kubernetes-dashboard
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: admin-user
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: admin-user
+  namespace: kubernetes-dashboard
 ```
 
 
