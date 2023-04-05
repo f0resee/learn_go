@@ -132,4 +132,24 @@ API server是k8s控制面中的一个组件，暴露k8s API，是k8s控制面的
 
 ### 6. kube-proxy
 维护节点网络规则，网络规则允许从集群内或者从集群外通过网络连接访问Pod。
-## 三、源码
+## 三、基础概念
+
+### 1. Master节点
+### 2. Node节点
+### 3. Pod
+### 4. Label和Selector
+### 5. Replication Controller和ReplicaSet
+### 6. Deployment
+### 7. Statement
+### 8. DaemonSet
+### 9. ConfigMap
+### 10. Seret
+### 11. HPA
+### 12. Storage
+### 13. Service
+### 14. Ingress
+### 15. Taint和Tolerant
+### 16. RBAC
+### 17. CronJob
+
+## 四、源码
