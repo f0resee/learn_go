@@ -1,11 +1,11 @@
-package grpc
+package serizalize
 
 import (
 	"fmt"
 	"log"
 	"testing"
 
-	mypro "gitee.com/souththree/learn_go/src/grpc/proto"
+	mypro "gitee.com/souththree/learn_go/src/grpc/serizalize/proto"
 	"google.golang.org/protobuf/proto"
 )
 

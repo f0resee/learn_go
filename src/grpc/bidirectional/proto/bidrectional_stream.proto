@@ -1,0 +1,15 @@
+syntax = "proto3";
+option go_package = "./;proto";  //包名
+
+message StreamRequest{
+  string data = 1;
+}
+
+message StreamResponse{
+  int32 code = 1;
+  string value = 2;
+}
+
+service StreamService{
+  rpc Record(stream StreamRequest) returns (stream StreamResponse){};
+}

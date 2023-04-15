@@ -68,3 +68,17 @@ goland无限试用，ide-eval-reset，2021.2.2及之前版本。
 containerd/lazy load/sidecar/daemonset
 
 ### zookeeper
+
+### grpc
+1. protoc install
+   ```shell
+sudo apt install protobuf-compiler
+```
+
+2. generate proto 
+
+```shell
+protoc --go_out=. --go_opt=paths=source_relative \
+--go-grpc_out=. --go-grpc_opt=paths=source_relative \
+helloworld/helloworld.proto
+```
