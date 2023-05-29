@@ -5,11 +5,13 @@ go 1.18
 require (
 	github.com/Kidsunbo/kie_toolbox_go/logs v0.0.0-20221128085724-fae4c95b71b1
 	github.com/apache/rocketmq-client-go/v2 v2.1.1
+	github.com/containerd/cgroups v1.1.0
 	github.com/gin-gonic/gin v1.7.4
 	github.com/go-playground/assert/v2 v2.0.1
 	github.com/go-zookeeper/zk v1.0.3
 	github.com/gomodule/redigo v2.0.0+incompatible
 	github.com/hashicorp/consul/api v1.20.0
+	github.com/opencontainers/runtime-spec v1.0.2
 	github.com/pkg/errors v0.9.1
 	google.golang.org/grpc v1.54.0
 	gorm.io/driver/mysql v1.1.2
@@ -20,6 +22,8 @@ require (
 require (
 	github.com/armon/go-metrics v0.0.0-20180917152333-f0300d1749da // indirect
 	github.com/boj/redistore v0.0.0-20180917114910-cd5dcc76aeff // indirect
+	github.com/cilium/ebpf v0.9.1 // indirect
+	github.com/coreos/go-systemd/v22 v22.3.2 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/emirpasic/gods v1.12.0 // indirect
 	github.com/fatih/color v1.9.0 // indirect
@@ -29,6 +33,7 @@ require (
 	github.com/go-playground/universal-translator v0.17.0 // indirect
 	github.com/go-playground/validator/v10 v10.4.1 // indirect
 	github.com/go-sql-driver/mysql v1.6.0 // indirect
+	github.com/godbus/dbus/v5 v5.0.4 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/google/gofuzz v1.1.0 // indirect
@@ -55,7 +60,7 @@ require (
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/patrickmn/go-cache v2.1.0+incompatible // indirect
 	github.com/satori/go.uuid v1.2.0 // indirect
-	github.com/sirupsen/logrus v1.7.0 // indirect
+	github.com/sirupsen/logrus v1.8.1 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/stathat/consistent v1.0.0 // indirect
 	github.com/tidwall/gjson v1.13.0 // indirect
