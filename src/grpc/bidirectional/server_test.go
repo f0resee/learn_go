@@ -33,7 +33,7 @@ func (s *StreamService) Record(srv proto.StreamService_RecordServer) error {
 		}
 		if err != nil {
 			log.Fatalf("stream get from client err: %v", err)
-			return err
+			return nil
 		}
 
 		err = srv.Send(&proto.StreamResponse{
