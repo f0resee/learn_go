@@ -25,4 +25,8 @@ sudo hwclock --localtime --systohc			//将本地时间更新到硬件上
 ### 本机sock通信
 ### cgroups资源限制
 ### 硬件信息获取
-### daemon set
+### daemon set 
+
+[linux kernel map](https://makelinux.github.io/kernel/map/)
+
+[linux kernel docs](https://www.kernel.org/doc/html/latest/)
