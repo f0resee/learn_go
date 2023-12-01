@@ -7,7 +7,7 @@ vim /etc/fstabs //关闭swap
 ```
 
 ### 2.下载安装containerd和runc
-[containerd](https://github.com/containerd/containerd)
+[containerd](https://github.com/containerd/containerd/blob/main/docs/getting-started.md)
 ```shell
 tar Cxzvf /usr/local containerd-1.6.2-linux-amd64.tar.gz //解压
 mkdir -p /usr/local/lib/systemd/system
@@ -16,6 +16,7 @@ vim /usr/local/lib/systemd/system/containerd.service
 systemctl daemon-reload
 systemctl enable --now containerd
 install -m 755 runc.amd64 /usr/local/sbin/runc
+mkdir -p/etc/containerd
 containerd config default > /etc/containerd/config.toml
 vim /etc/containerd/config.toml // 修改SystemdGroup为true
 sudo systemctl restart containerd
