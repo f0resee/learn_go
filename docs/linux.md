@@ -12,6 +12,9 @@
 9. strace
 10. lsof
 11. perf
+12. df
+13. du
+14. free
 
 linux settings 
 ```bash
@@ -30,3 +33,7 @@ sudo hwclock --localtime --systohc			//将本地时间更新到硬件上
 [linux kernel map](https://makelinux.github.io/kernel/map/)
 
 [linux kernel docs](https://www.kernel.org/doc/html/latest/)
+
+chsh -s /bin/zsh
+
+/sbin/addgroup nansan sudo

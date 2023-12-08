@@ -3,49 +3,74 @@
 ### 1. 准备
 ```shell
 swapoff -a      //关闭swap，立即生效
-vim /etc/fstabs //关闭swap
+
+vim /etc/fstab  //关闭swap
 ```
 
 ### 2.下载安装containerd和runc
 [containerd](https://github.com/containerd/containerd/blob/main/docs/getting-started.md)
+
+安装containerd
 ```shell
-tar Cxzvf /usr/local containerd-1.6.2-linux-amd64.tar.gz //解压
+wget https://github.com/containerd/containerd/releases/download/v1.7.10/containerd-1.7.10-linux-amd64.tar.gz
+
+tar Cxzvf /usr/local containerd-1.7.10-linux-amd64.tar.gz
+
 mkdir -p /usr/local/lib/systemd/system
-//创建 containerd.service并启动，https://raw.githubusercontent.com/containerd/containerd/main/containerd.service
-vim /usr/local/lib/systemd/system/containerd.service
+
+wget https://raw.githubusercontent.com/containerd/containerd/main/containerd.service
+
+cp containerd.service /usr/local/lib/systemd/system/containerd.service
+
 systemctl daemon-reload
+
 systemctl enable --now containerd
+```
+安装runc
+```shell
+wget https://github.com/opencontainers/runc/releases/download/v1.1.10/runc.amd64
+
 install -m 755 runc.amd64 /usr/local/sbin/runc
-mkdir -p/etc/containerd
+
+mkdir -p /etc/containerd
+
 containerd config default > /etc/containerd/config.toml
+
 vim /etc/containerd/config.toml // 修改SystemdGroup为true
+
 sudo systemctl restart containerd
 ```
 
 ### 3. 安装kubelet、kubeadm、kubectl
 ```shell
 apt-get update && apt-get install -y apt-transport-https
+
 curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add - 
+
 cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
 deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main
 EOF
+
 apt-get update
+
 apt-get install -y kubelet kubeadm kubectl
 ```
 
 ### 4. 初始化集群，安装网络组件
 ```shell
 hostnamectl set-hostname master01  
-cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
+
+cat <<EOF |tee /etc/modules-load.d/k8s.conf
 overlay
 br_netfilter
 EOF
 
 sudo modprobe overlay
+
 sudo modprobe br_netfilter
 
 # sysctl params required by setup, params persist across reboots
-cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
+cat <<EOF |tee /etc/sysctl.d/k8s.conf
 net.bridge.bridge-nf-call-iptables  = 1
 net.bridge.bridge-nf-call-ip6tables = 1
 net.ipv4.ip_forward                 = 1
@@ -55,25 +80,31 @@ EOF
 sudo sysctl --system
 
 kubeadm config images pull --image-repository registry.aliyuncs.com/google_containers
-vim /etc/containerd/config.toml // sandbox : registry.aliyuncs.com/google_containers/pause:3.9
-kubeadm init --pod-network-cidr=10.244.0.0/16 --image-repository registry.aliyuncs.com/google_containers
 
-# 安装flannel，https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
+vim /etc/containerd/config.toml // sandbox : registry.aliyuncs.com/google_containers/pause:3.9
+
+sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --image-repository registry.aliyuncs.com/google_containers
+
+wget https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
 kubectl apply -f kube-flannel.yml
 
 ```
 
 ### 5. 安装dashboard
 ```shell
-# 下载release， https://github.com/kubernetes/dashboard
+git clone https://github.com/kubernetes/dashboard
 kubectl apply -f aio/deploy/recommended.yaml  
 
 #type：ClusterIP修改为NodePort
 kubectl edit svc kubernetes-dashboard -n kubernetes-dashboard  
+
 kubectl get svc -A |grep kubernetes-dashboard 
 
 # 创建admin-user用户，https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md
 kubectl apply -f create-admin-user.yaml
+
+kubectl apply -f create-role-binding.yaml
+
 kubectl -n kubernetes-dashboard create token admin-user
 ```
 
@@ -84,7 +115,10 @@ kind: ServiceAccount
 metadata:
   name: admin-user
   namespace: kubernetes-dashboard
----
+```
+
+create-role-binding.yaml
+```yml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
