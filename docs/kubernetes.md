@@ -26,6 +26,10 @@ cp containerd.service /usr/local/lib/systemd/system/containerd.service
 systemctl daemon-reload
 
 systemctl enable --now containerd
+
+mkdir -p /opt/cni/bin
+
+tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.4.0.tgz
 ```
 安装runc
 ```shell
