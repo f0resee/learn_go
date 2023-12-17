@@ -1,6 +1,5 @@
 ## 一、安装
-[kubernetes.io](https://kubernetes.io/)
-[kubectl-commands](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create)
+[kubernetes](https://kubernetes.io/)
 ### 1. 准备
 ```shell
 swapoff -a      //关闭swap，立即生效
@@ -26,6 +25,10 @@ cp containerd.service /usr/local/lib/systemd/system/containerd.service
 systemctl daemon-reload
 
 systemctl enable --now containerd
+
+mkdir -p /opt/cni/bin
+
+tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.4.0.tgz
 ```
 安装runc
 ```shell
@@ -172,58 +175,20 @@ API server是k8s控制面中的一个组件，暴露k8s API，是k8s控制面的
 
 ### 1. Master节点
 ### 2. Node节点
-```sh
-kubectl get node
-kubectl describe node worker02
-```
-### 3. Namespace
-### 4. Pod
-```sh
-kubectl get pod -A
-kubectl get pod -n test  
-kubectl get pods -A -o wide
-kubectl describe pod mynginx -n test
-kubectl logs mynginx -n test
-kubectl exec -it mynginx -n test -- /bin/bash
-```
-
-```yaml
-kind: Pod
-apiVersion: v1
-metadata:
-  name: mynginx
-  containers:
-    - name: mynginx
-      image: nginx
-```
-
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  labels:
-    run: myapp
-  name: myapp
-spec:
-  containers:
-  - image: nginx
-    name: nginx
-  - image: tomcat
-    name: tomcat
-```
-### 5. Label和Selector
-### 6. Replication Controller和ReplicaSet
-### 7. Deployment
-### 8. Statement
-### 9. DaemonSet
-### 10. ConfigMap
-### 11. Seret
-### 12. HPA
-### 13. Storage
-### 14. Service
-### 15. Ingress
-### 16. Taint和Tolerant
-### 17. RBAC
-### 18. CronJob
+### 3. Pod
+### 4. Label和Selector
+### 5. Replication Controller和ReplicaSet
+### 6. Deployment
+### 7. Statement
+### 8. DaemonSet
+### 9. ConfigMap
+### 10. Seret
+### 11. HPA
+### 12. Storage
+### 13. Service
+### 14. Ingress
+### 15. Taint和Tolerant
+### 16. RBAC
+### 17. CronJob
 
 ## 四、源码
