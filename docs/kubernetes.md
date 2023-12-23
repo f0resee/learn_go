@@ -174,6 +174,8 @@ API server是k8s控制面中的一个组件，暴露k8s API，是k8s控制面的
 维护节点网络规则，网络规则允许从集群内或者从集群外通过网络连接访问Pod。
 ## 三、基础概念
 
+[Kubernetes核心实战](https://www.yuque.com/leifengyang/oncloud/ctiwgo#3ykv9)
+
 ### 1. Master节点
 ### 2. Node节点
 ```sh
@@ -218,6 +220,32 @@ spec:
 ### 5. Label和Selector
 ### 6. Replication Controller和ReplicaSet
 ### 7. Deployment
+```bash
+kubectl create deployment mytomcat --image=tomcat
+```
+
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-dep
+  labels:
+    app: my-dep
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-dep
+  template:
+    metadata:
+      labels:
+        app: my-dep
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+```
 ### 8. Statement
 ### 9. DaemonSet
 ### 10. ConfigMap
@@ -225,6 +253,48 @@ spec:
 ### 12. HPA
 ### 13. Storage
 ### 14. Service
+```bash
+kubectl expose deployment my-dep --port=8000 --target-port=80 --type=ClusterIP
+```
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: my-dep
+  name: my-dep
+spec:
+  selector:
+    app: my-dep
+  ports:
+  - port: 8000
+    protocol: TCP
+    targetPort: 80
+```
+```bash
+curl 10.98.164.10:8000
+curl my-dep.default.svc:8000
+```
+```
+kubectl expose deployment my-dep --port=8000 --target-port=80 --type=NodePort
+```
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: my-dep
+  name: my-dep
+spec:
+  ports:
+  - port: 8000
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: my-dep
+  type: NodePort
+
+```
 ### 15. Ingress
 ### 16. Taint和Tolerant
 ### 17. RBAC
