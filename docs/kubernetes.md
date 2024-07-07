@@ -46,6 +46,19 @@ vim /etc/containerd/config.toml // 修改SystemdGroup为true
 sudo systemctl restart containerd
 ```
 
+可选 containerd代理```/etc/systemd/system/containerd.service.d/http-proxy.conf```
+```
+[Service]
+Environment="HTTP_PROXY=http://192.168.1.7:1080"
+Environment="HTTPS_PROXY=http://192.168.1.7:1080"
+Environment="NO_PROXY=localhost,10.200.0.0/16,10.233.0.0/16,192.168.0.0/16"
+```
+
+```bash
+systemctl daemon-reload
+systemctl restart containerd
+```
+
 ### 3. 安装kubelet、kubeadm、kubectl
 ```shell
 apt-get update && apt-get install -y apt-transport-https
