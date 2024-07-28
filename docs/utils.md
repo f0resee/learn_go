@@ -38,6 +38,7 @@
 ## 项目
 1. [6.824](http://nil.csail.mit.edu/6.824/2020/schedule.html)
 2. 数据库项目
+3. https://github.com/ray-project/ray
 
 
 ### 1. 缓存穿透、击穿、雪崩
