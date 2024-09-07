@@ -6,6 +6,7 @@ require (
 	github.com/Kidsunbo/kie_toolbox_go/logs v0.0.0-20221128085724-fae4c95b71b1
 	github.com/apache/rocketmq-client-go/v2 v2.1.1
 	github.com/containerd/cgroups v1.1.0
+	github.com/d5/tengo/v2 v2.17.0
 	github.com/emicklei/go-restful/v3 v3.8.0
 	github.com/gin-gonic/gin v1.7.4
 	github.com/go-playground/assert/v2 v2.0.1
