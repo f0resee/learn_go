@@ -173,6 +173,18 @@ API server是k8s控制面中的一个组件，暴露k8s API，是k8s控制面的
 
 ### 2. etcd
 完备、高可用key-value存储，用于k8s后端存储所有的集群数据。
+```sh
+# 查看etcd容器启动命令
+kubectl -n kube-system describe pod etcd-master01
+# 查看etcd中的所有key
+./etcdctl --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/peer.crt --key=/etc/kubernetes/pki/etcd/peer.key get --prefix "" --keys-only
+# 查看etcd中的所有key并解析为json
+./etcdctl --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/peer.crt --key=/etc/kubernetes/pki/etcd/peer.key get --prefix "" --keys-only -w json|python3 -m json.tool
+# 查看某个key对应的字符串
+base64 -d <<<L3JlZ2lzdHJ5L3NlcnZpY2VzL3NwZWNzL2t1YmVybmV0ZXMtZGFzaGJvYXJkL2t1YmVybmV0ZXMtZGFzaGJvYXJk
+# etcdhelper查看key对应的值，https://github.com/openshift/origin/tree/master/tools/etcdhelper
+./etcdhelper --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/peer.crt --key=/etc/kubernetes/pki/etcd/peer.key get /registry/clusterroles/system:controller:endpointslice-controller
+```
 
 ### 3. kube-scheduler
 用于监听新创建的Pods和未分配的node，并选择node来运行这些Pod。调度时考虑的因素：资源需求、硬件/软件/策略约束、亲和/反亲和要求、数据局部性、工作负载间的影响及生命周期。
@@ -196,6 +208,9 @@ kubectl get node
 kubectl describe node worker02
 ```
 ### 3. Namespace
+```sh
+kubectl get ns
+```
 ### 4. Pod
 ```sh
 kubectl get pod -A
