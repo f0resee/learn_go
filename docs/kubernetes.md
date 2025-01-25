@@ -200,6 +200,7 @@ base64 -d <<<L3JlZ2lzdHJ5L3NlcnZpY2VzL3NwZWNzL2t1YmVybmV0ZXMtZGFzaGJvYXJkL2t1YmV
 ## 三、基础概念
 
 [Kubernetes核心实战](https://www.yuque.com/leifengyang/oncloud/ctiwgo#3ykv9)
+[Kubernetes](https://iximiuz.com/en/categories/?category=Kubernetes)
 
 ### 1. Master节点
 ### 2. Node节点
