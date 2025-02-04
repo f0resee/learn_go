@@ -168,8 +168,7 @@ minikube start --kubernetes-version=v1.23.8
 
 ### 控制面组件
 ### 1. API server(kube-apiserver)
-API server是k8s控制面中的一个组件，暴露k8s API，是k8s控制面的前端。其主要实现是kube-apiserver，可以水平
-缩放，通过部署更多的实例来进行缩放。可以运行多个kube-apiserver，并在实例间进行负载均衡。
+API server是k8s控制面中的一个组件，暴露k8s API，是k8s控制面的前端。其主要实现是kube-apiserver，可以水平缩放，通过部署更多的实例来进行缩放。可以运行多个kube-apiserver，并在实例间进行负载均衡。
 
 ### 2. etcd
 完备、高可用key-value存储，用于k8s后端存储所有的集群数据。
@@ -194,9 +193,11 @@ base64 -d <<<L3JlZ2lzdHJ5L3NlcnZpY2VzL3NwZWNzL2t1YmVybmV0ZXMtZGFzaGJvYXJkL2t1YmV
 
 ### 节点组件
 ### 5. kubelet
+在每个Node节点上运行的主要 “节点代理”。它接受通过各种机制(主要是kube-apiserver)提供的一组PodSpec(描述pod 的YAML或JSON对象)并保证这些PodSpec中描述的pod正常健康运行。
 
 ### 6. kube-proxy
 维护节点网络规则，网络规则允许从集群内或者从集群外通过网络连接访问Pod。
+
 ## 三、基础概念
 
 [Kubernetes核心实战](https://www.yuque.com/leifengyang/oncloud/ctiwgo#3ykv9)
