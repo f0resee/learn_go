@@ -1,4 +1,5 @@
 package main
+
 import (
 	"context"
 	"fmt"
@@ -11,7 +12,6 @@ import (
 
 	"github.com/gin-gonic/gin"
 )
-
 
 func main() {
 	router := gin.Default()
@@ -46,7 +46,7 @@ func main() {
 	defer cancel()
 	if err := srv.Shutdown(ctx); err != nil {
 		log.Fatal("Server Shutdown:", err)
-	}else{
+	} else {
 		log.Println("shutting down")
 	}
 	// catching ctx.Done(). timeout of 5 seconds.
@@ -58,4 +58,3 @@ func main() {
 	}
 	log.Println("Server exiting")
 }
-
