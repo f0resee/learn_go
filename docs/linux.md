@@ -1,20 +1,67 @@
 ## linux
 
 ### 常用命令
-1. ps
-2. kill
-3. ip
-4. netstat
-5. scp
-6. atop
-7. iostat
-8. iotop
-9. strace
-10. lsof
-11. perf
-12. df
-13. du
-14. free
+#### system
++ ps
+```shell
+ps -ef
+ps -p 1
+ps -o pid,ppid,cmd -p 3086311
+ps -p 3086311 -o cmd
+```
++ top
++ dstat
++ sar
++ vmstat
++ pidstat
++ atop: [usage](https://www.digitalocean.com/community/tutorials/atop-command-in-linux)
++ strace
+#### memory
+```shell
+ cat /proc/meminfo
+```
++ free
++ slabtop
++ pmap
+
+#### IO
++ iotop
++ iostat
++ blktrace
++ perf
++ stap
++ iosnoop
+
+#### network
++ iftop
++ nethogs
++ ifstat
++ netstat
++ tcpdump
++ ip
++ ping
++ iperf
++ iptables
+
+#### file
++ ldd
++ nm
++ size
++ readleaf
++ ls
++ objdump
++ du
++ df
++ dd
++ lsof
+
+#### performance
++ perf
++ sysrq
++ ftrace
++ ebpf
++ pprof
+
 
 linux settings 
 ```bash
