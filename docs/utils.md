@@ -6,14 +6,15 @@
    如何编写可mock的代码
    1. mock 作用的是接口，因此将依赖抽象为接口，而不是直接依赖具体的类。
    2. 不直接依赖的实例，而是使用依赖注入降低耦合性。
-6. 断言库 [assert](https://github.com/stretchr/testify)
-7. flag包 [pflag](https://github.com/spf13/pflag)
-8. validate [govalidator](http://github.com/asaskevich/govalidator)
-9. websocket [websocket](https://github.com/gorilla/websocket)
-10. redis key-value存储 [redis](https://redis.io/)
-11. yaml [yaml.v3](https://gopkg.in/yaml.v3)
-12. pretty [pretty](https://github.com/kr/pretty)
-13. tengo [tengo](https://github.com/d5/tengo)
+5. 断言库 [assert](https://github.com/stretchr/testify)
+6. flag包 [pflag](https://github.com/spf13/pflag)
+7. validate [govalidator](http://github.com/asaskevich/govalidator)
+8. websocket [websocket](https://github.com/gorilla/websocket)
+9. redis key-value存储 [redis](https://redis.io/)
+10. yaml [yaml.v3](https://gopkg.in/yaml.v3)
+11. pretty [pretty](https://github.com/kr/pretty)
+12. tengo [tengo](https://github.com/d5/tengo)
+13. [项目模板](https://github.com/golang-standards/project-layout)
 
 ## 常用技术
 1. 稳定性：缓存、降级、限流（熔断，[hystrix-go](https://gitee.com/mirrors/hystrix-go )，[uber rate limit](https://pkg.go.dev/go.uber.org/ratelimit )，[go x rate](https://pkg.go.dev/golang.org/x/time/rate )）

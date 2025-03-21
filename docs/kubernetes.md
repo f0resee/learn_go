@@ -3,7 +3,7 @@
 [kubectl-commands](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create)
 ### 1. 准备
 ```shell
-swapoff -a      //关闭swap，立即生效
+swapoff -a      //关闭swap, 立即生效
 
 vim /etc/fstab  //关闭swap
 ```
@@ -222,6 +222,7 @@ kubectl get pods -A -o wide
 kubectl describe pod mynginx -n test
 kubectl logs mynginx -n test
 kubectl exec -it mynginx -n test -- /bin/bash
+kubectl exec -it mynginx -n test -c nginx -- /bin/bash
 ```
 
 ```yaml

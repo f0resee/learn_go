@@ -3,12 +3,12 @@
 ### 常用命令
 #### system
 + ps
-```shell
-ps -ef
-ps -p 1
-ps -o pid,ppid,cmd -p 3086311
-ps -p 3086311 -o cmd
-```
+    ```shell
+    ps -ef
+    ps -p 1
+    ps -o pid,ppid,cmd -p 3086311
+    ps -p 3086311 -o cmd
+    ```
 + top
 + dstat
 + sar
@@ -17,9 +17,9 @@ ps -p 3086311 -o cmd
 + atop: [usage](https://www.digitalocean.com/community/tutorials/atop-command-in-linux)
 + strace
 #### memory
-```shell
- cat /proc/meminfo
-```
+   ```shell
+  cat /proc/meminfo
+   ```
 + free
 + slabtop
 + pmap
