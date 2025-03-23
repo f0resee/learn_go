@@ -34,10 +34,10 @@ func main() {
 	ctx := context.Background()
 	sandboxConfig := &runtimev1.PodSandboxConfig{
 		Metadata: &runtimev1.PodSandboxMetadata{
-			Name:      "pod-my10",
+			Name:      "pod-my11",
 			Namespace: "default",
 		},
-		Hostname:     "pod-my10",
+		Hostname:     "pod-my11",
 		LogDirectory: "/home/nansan/go/src/gitee/learn_go/cmd/cri-api-example",
 		DnsConfig:    nil,
 		Labels:       map[string]string{"app": "my-app"},
@@ -56,7 +56,7 @@ func main() {
 
 	containerConfig := &runtimev1.ContainerConfig{
 		Metadata: &runtimev1.ContainerMetadata{
-			Name: "my-container10",
+			Name: "my-container11",
 		},
 		Image: &runtimev1.ImageSpec{
 			Image: "docker.io/library/busybox:latest",
