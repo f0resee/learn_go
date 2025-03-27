@@ -38,7 +38,7 @@ func main() {
 			Namespace: "default",
 		},
 		Hostname:     "pod-my11",
-		LogDirectory: "/home/nansan/go/src/gitee/learn_go/cmd/cri-api-example",
+		LogDirectory: "/var/log",
 		DnsConfig:    nil,
 		Labels:       map[string]string{"app": "my-app"},
 		Annotations:  nil,
@@ -89,6 +89,5 @@ func main() {
 	if err != nil {
 		log.Fatalf("container status error: %s", err.Error())
 	}
-	log.Printf("status", status)
-	time.Sleep(1 * time.Hour)
+	log.Printf("status %+v", status)
 }
