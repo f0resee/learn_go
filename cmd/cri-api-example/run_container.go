@@ -34,10 +34,10 @@ func main() {
 	ctx := context.Background()
 	sandboxConfig := &runtimev1.PodSandboxConfig{
 		Metadata: &runtimev1.PodSandboxMetadata{
-			Name:      "pod-my11",
+			Name:      "pod-my12",
 			Namespace: "default",
 		},
-		Hostname:     "pod-my11",
+		Hostname:     "pod-my12",
 		LogDirectory: "/var/log",
 		DnsConfig:    nil,
 		Labels:       map[string]string{"app": "my-app"},
@@ -56,7 +56,7 @@ func main() {
 
 	containerConfig := &runtimev1.ContainerConfig{
 		Metadata: &runtimev1.ContainerMetadata{
-			Name: "my-container11",
+			Name: "my-container12",
 		},
 		Image: &runtimev1.ImageSpec{
 			Image: "docker.io/library/busybox:latest",

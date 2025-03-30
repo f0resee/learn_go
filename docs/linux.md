@@ -42,6 +42,12 @@
 + ping
 + iperf
 + iptables
++ nc
+  ```shell
+  # network speed test
+  nc -l 11223 > /dev/null
+  dd if=/dev/zero bs=10MB count=1000 | nc 192.168.2.8 11223
+  ```
 
 #### file
 + ldd
