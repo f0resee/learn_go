@@ -1,9 +1,10 @@
 package redis
 
 import (
+	"testing"
+
 	"github.com/go-playground/assert/v2"
 	"github.com/gomodule/redigo/redis"
-	"testing"
 )
 
 func TestRedisConn(t *testing.T) {
