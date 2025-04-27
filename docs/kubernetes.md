@@ -203,6 +203,7 @@ base64 -d <<<L3JlZ2lzdHJ5L3NlcnZpY2VzL3NwZWNzL2t1YmVybmV0ZXMtZGFzaGJvYXJkL2t1YmV
 [Kubernetes核心实战](https://www.yuque.com/leifengyang/oncloud/ctiwgo#3ykv9)
 [Kubernetes](https://iximiuz.com/en/categories/?category=Kubernetes)
 [kubernetes乱世浮生](https://atbug.com/deep-dive-k8s-network-mode-and-communication/)
+[kubernetes notes](https://github.com/rfyiamcool/notes)
 
 ### 1. Master节点
 ### 2. Node节点
