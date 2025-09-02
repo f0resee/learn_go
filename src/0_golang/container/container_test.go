@@ -1,12 +1,12 @@
-package gocontainer
+package container
 
 import (
-	"container/list"  //heap, list, ring
+	"container/list" //heap, list, ring
 	"fmt"
 	"testing"
 )
 
-func TestGoContainer(t *testing.T)  {
+func TestGoContainer(t *testing.T) {
 	l := list.New()
 	e4 := l.PushBack(4)
 	e1 := l.PushFront(1)

@@ -24,10 +24,11 @@ type StreamService struct {
 	*proto.UnimplementedStreamServiceServer
 }
 
-func (s *StreamService) Record(srv proto.StreamService_RecordServer) error {
+func (s *StreamService) Record(stream proto.StreamService_RecordServer) error {
+	streamCtx := stream.Context()
 	n := 1
 	for {
-		req, err := srv.Recv()
+		req, err := stream.Recv()
 		if err == io.EOF {
 			return nil
 		}
@@ -36,7 +37,7 @@ func (s *StreamService) Record(srv proto.StreamService_RecordServer) error {
 			return nil
 		}
 
-		err = srv.Send(&proto.StreamResponse{
+		err = stream.Send(&proto.StreamResponse{
 			Code:  int32(n),
 			Value: "This is the " + strconv.Itoa(n) + " message",
 		})
