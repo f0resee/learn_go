@@ -34,17 +34,25 @@ func main() {
 		log.Fatalf("failed to pull image: %s", err.Error())
 	}
 
-	hostBinaryPath := "/home/nansan/go/src/gitee/learn_go/cmd/containerd-sdk-example/run_container"
-	containerBinaryPath := "/usr/bin/stress"
+	//	hostBinaryPath := "/home/nansan/go/src/gitee/learn_go/cmd/containerd-sdk-example/run_container"
+	//	containerBinaryPath := "/usr/bin/stress"
 
 	mounts := []specs.Mount{
+		/*
+			{
+				Type:        "bind",
+				Source:      hostBinaryPath,
+				Destination: containerBinaryPath,
+				Options: []string{
+					"bind",
+				},
+			},
+		*/
 		{
 			Type:        "bind",
-			Source:      hostBinaryPath,
-			Destination: containerBinaryPath,
-			Options: []string{
-				"bind",
-			},
+			Destination: "/dev/hugepages",
+			Source:      "/dev/hugepages",
+			Options:     []string{"rbind", "rw"},
 		},
 	}
 
@@ -68,6 +76,18 @@ func main() {
 	task, err := container.NewTask(ctx, cio.NullIO)
 	if err != nil {
 		log.Fatalf("failed to create task: %s", err.Error())
+	}
+
+	err = task.Update(ctx, containerd.WithResources(&specs.LinuxResources{
+		HugepageLimits: []specs.LinuxHugepageLimit{
+			{
+				Pagesize: "2MB",
+				Limit:    1073741824,
+			},
+		},
+	}))
+	if err != nil {
+		fmt.Printf("update error: %s", err.Error())
 	}
 
 	if err := task.Start(ctx); err != nil {

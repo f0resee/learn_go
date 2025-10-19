@@ -6,7 +6,7 @@ require (
 	github.com/Kidsunbo/kie_toolbox_go/logs v0.0.0-20221128085724-fae4c95b71b1
 	github.com/apache/rocketmq-client-go/v2 v2.1.1
 	github.com/containerd/cgroups v1.1.0
-	github.com/containerd/containerd v1.7.20
+	github.com/containerd/containerd v1.7.27
 	github.com/d5/tengo/v2 v2.17.0
 	github.com/emicklei/go-restful/v3 v3.10.1
 	github.com/gin-gonic/gin v1.7.4
@@ -18,6 +18,7 @@ require (
 	github.com/opencontainers/runtime-spec v1.2.0
 	github.com/pkg/errors v0.9.1
 	github.com/spf13/cobra v1.9.1
+	github.com/spf13/pflag v1.0.6
 	go.etcd.io/etcd/client/v3 v3.5.21
 	google.golang.org/grpc v1.67.0
 	gorm.io/driver/mysql v1.1.2
@@ -106,7 +107,6 @@ require (
 	github.com/prometheus/common v0.62.0 // indirect
 	github.com/satori/go.uuid v1.2.0 // indirect
 	github.com/sirupsen/logrus v1.9.3 // indirect
-	github.com/spf13/pflag v1.0.6 // indirect
 	github.com/stathat/consistent v1.0.0 // indirect
 	github.com/tidwall/gjson v1.13.0 // indirect
 	github.com/tidwall/match v1.1.1 // indirect
@@ -138,7 +138,7 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	k8s.io/klog/v2 v2.100.1 // indirect
 	k8s.io/utils v0.0.0-20230406110748-d93618cff8a2 // indirect
-	sigs.k8s.io/json v0.0.0-20220713155537-f223a00ba0e2 // indirect
+	sigs.k8s.io/json v0.0.0-20221116044647-bc3834ca7abd // indirect
 	sigs.k8s.io/structured-merge-diff/v4 v4.2.3 // indirect
 	sigs.k8s.io/yaml v1.3.0 // indirect
 )
@@ -157,6 +157,6 @@ require (
 	google.golang.org/protobuf v1.36.1
 	gotest.tools/v3 v3.4.0 // indirect
 	k8s.io/api v0.26.2
-	k8s.io/apimachinery v0.26.2
+	k8s.io/apimachinery v0.27.4
 	k8s.io/client-go v0.26.2
 )
