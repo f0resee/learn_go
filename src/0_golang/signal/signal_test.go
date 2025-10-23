@@ -1,17 +1,14 @@
-package singnal
+package signal
 
 import (
-	"fmt"
-	"os"
-	"os/signal"
-	"syscall"
+	"sync"
 	"testing"
 )
 
+var once sync.Once
+
+var onlyOneSignalHanler = make(chan struct{})
+
 func TestSignal(t *testing.T) {
-	c := make(chan os.Signal, 1)
-	signal.Notify(c, syscall.SIGINT, syscall.SIGTERM)
-	fmt.Println("start")
-	s := <-c
-	fmt.Println("finish: ", s.String())
+	close(onlyOneSignalHanler)
 }
