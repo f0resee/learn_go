@@ -10,17 +10,19 @@ import (
 	"testing"
 )
 
-func Test_port_Client(t *testing.T) {
+func Test_addr_Client(t *testing.T) {
 	client := &http.Client{}
 	res, err := client.Get("http://localhost:8080/about")
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer res.Body.Close()
+
 	body, err := io.ReadAll(res.Body)
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	fmt.Printf("%s", string(body))
 }
 
@@ -37,10 +39,12 @@ func Test_uds_Client(t *testing.T) {
 		log.Fatal(err)
 	}
 	defer res.Body.Close()
+
 	body, err := io.ReadAll(res.Body)
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	fmt.Printf("%s", string(body))
 }
 
@@ -75,23 +79,4 @@ func TestGoHttpGet(t *testing.T) {
 		log.Fatal(err)
 	}
 	fmt.Printf("%s", body)
-}
-
-func TestGoHttpRequestAndDefaultClient(t *testing.T) {
-	var resReader http.Response
-	req, err := http.NewRequest(http.MethodGet, "https://www.baidu.com/robots.txt", resReader.Body)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	resp, err1 := http.DefaultClient.Do(req)
-	if err1 != nil {
-		log.Fatal(err1)
-	}
-	body, err2 := io.ReadAll(resp.Body)
-	defer resp.Body.Close()
-	if err2 != nil {
-		log.Fatal(err2)
-	}
-	log.Printf("%s", body)
 }

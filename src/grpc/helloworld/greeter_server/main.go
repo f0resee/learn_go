@@ -7,7 +7,7 @@ import (
 	"log"
 	"net"
 
-	"gitee.com/souththree/learn_go/src/grpc/helloworld/helloworld"
+	"github.com/f0resee/learn_go/src/grpc/helloworld/helloworld"
 	"google.golang.org/grpc"
 )
 

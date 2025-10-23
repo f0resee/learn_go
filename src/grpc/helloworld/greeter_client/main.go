@@ -6,7 +6,7 @@ import (
 	"log"
 	"time"
 
-	"gitee.com/souththree/learn_go/src/grpc/helloworld/helloworld"
+	"github.com/f0resee/learn_go/src/grpc/helloworld/helloworld"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )

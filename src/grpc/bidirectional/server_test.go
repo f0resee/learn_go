@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"gitee.com/souththree/learn_go/src/grpc/bidirectional/proto"
+	"github.com/f0resee/learn_go/src/grpc/bidirectional/proto"
 	"google.golang.org/grpc"
 )
 
@@ -25,7 +25,7 @@ type StreamService struct {
 }
 
 func (s *StreamService) Record(stream proto.StreamService_RecordServer) error {
-	streamCtx := stream.Context()
+	_ = stream.Context()
 	n := 1
 	for {
 		req, err := stream.Recv()

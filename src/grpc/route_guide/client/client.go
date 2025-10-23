@@ -8,7 +8,7 @@ import (
 	"math/rand"
 	"time"
 
-	"gitee.com/souththree/learn_go/src/grpc/route_guide/routeguide"
+	"github.com/f0resee/learn_go/src/grpc/route_guide/routeguide"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )

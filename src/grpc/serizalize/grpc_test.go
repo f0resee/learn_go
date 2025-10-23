@@ -5,7 +5,7 @@ import (
 	"log"
 	"testing"
 
-	mypro "gitee.com/souththree/learn_go/src/grpc/serizalize/proto"
+	mypro "github.com/f0resee/learn_go/src/grpc/serizalize/proto"
 	"google.golang.org/protobuf/proto"
 )
 

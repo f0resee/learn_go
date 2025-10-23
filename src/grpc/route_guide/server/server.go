@@ -12,7 +12,7 @@ import (
 	"sync"
 	"time"
 
-	"gitee.com/souththree/learn_go/src/grpc/route_guide/routeguide"
+	"github.com/f0resee/learn_go/src/grpc/route_guide/routeguide"
 	"google.golang.org/grpc"
 	"google.golang.org/protobuf/proto"
 	"k8s.io/apimachinery/pkg/util/json"

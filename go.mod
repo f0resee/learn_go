@@ -1,4 +1,4 @@
-module gitee.com/souththree/learn_go
+module github.com/f0resee/learn_go
 
 go 1.23.0
 
