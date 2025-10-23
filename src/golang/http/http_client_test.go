@@ -1,12 +1,48 @@
 package http
 
 import (
+	"context"
 	"fmt"
 	"io"
 	"log"
+	"net"
 	"net/http"
 	"testing"
 )
+
+func Test_port_Client(t *testing.T) {
+	client := &http.Client{}
+	res, err := client.Get("http://localhost:8080/about")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer res.Body.Close()
+	body, err := io.ReadAll(res.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("%s", string(body))
+}
+
+func Test_uds_Client(t *testing.T) {
+	client := &http.Client{
+		Transport: &http.Transport{
+			DialContext: func(ctx context.Context, network string, addr string) (net.Conn, error) {
+				return net.Dial("unix", "/tmp/http.sock")
+			},
+		},
+	}
+	res, err := client.Get("http://localhost/about")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer res.Body.Close()
+	body, err := io.ReadAll(res.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("%s", string(body))
+}
 
 func TestGoHttpGet(t *testing.T) {
 	res, err := http.Get("https://www.baidu.com/robots.txt")
