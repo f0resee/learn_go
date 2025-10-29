@@ -5,6 +5,19 @@
   + top
   + list func
   + web
+## grpc
+1. protoc install
+   ```shell
+   sudo apt install protobuf-compiler
+   ```
+
+2. generate proto 
+
+   ```shell
+   protoc --go_out=. --go_opt=paths=source_relative \
+   --go-grpc_out=. --go-grpc_opt=paths=source_relative \
+   helloworld/helloworld.proto
+   ```
 ## 一、Golang基础
 ### 1. context
 `context`包定义了`Context`类型，它包含了最后期限、取消信号以及其他其请求范围内跨API边界以及过程之间的值。
